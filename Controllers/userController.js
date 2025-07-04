@@ -1,4 +1,4 @@
-import userModel from '../models/userModel.js';
+import userModel from '../Models/userModel.js';
 
 // Get all users with pagination and filtering
 export const getAllUsers = async (req, res) => {
