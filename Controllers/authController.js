@@ -1,12 +1,10 @@
 import asyncHandler from "express-async-handler";
-import userModel from "../models/userModel.js";
+import userModel from "../Models/userModel.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import validator from "validator";
 import nodemailer from "nodemailer";
-import orderModel from "../models/orderModel.js"; // Adjust path if needed
 import cartModel from "../models/cartModel.js"; // Adjust path if needed
-import notificationModel from "../models/notificationModel.js"; // Adjust path if needed
 // List of valid Algerian wilayas
 const wilayas = [
   "Adrar", "Chlef", "Laghouat", "Oum El Bouaghi", "Batna", "Béjaïa", "Biskra", "Béchar",
