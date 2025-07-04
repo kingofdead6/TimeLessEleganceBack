@@ -4,7 +4,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import validator from "validator";
 import nodemailer from "nodemailer";
-import cartModel from "../models/cartModel.js"; // Adjust path if needed
+import cartModel from "../Models/cartModel.js"; // Adjust path if needed
 // List of valid Algerian wilayas
 const wilayas = [
   "Adrar", "Chlef", "Laghouat", "Oum El Bouaghi", "Batna", "Béjaïa", "Biskra", "Béchar",
