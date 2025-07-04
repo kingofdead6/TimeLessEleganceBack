@@ -7,7 +7,7 @@ import {
   updateOffer,
   deleteOffer,
 } from "../Controllers/OffersController.js";
-import { authMiddleware, adminMiddleware } from "../middleware/authMiddleware.js";
+import { authMiddleware, adminMiddleware } from "../Middleware/authMiddleware.js";
 
 const router = express.Router();
 const storage = multer.memoryStorage();

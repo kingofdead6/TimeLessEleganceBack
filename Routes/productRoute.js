@@ -12,7 +12,7 @@ import {
   getRelatedProducts,
   getProductById,
 } from "../Controllers/ProductController.js";
-import { authMiddleware, adminMiddleware } from "../middleware/authMiddleware.js";
+import { authMiddleware, adminMiddleware } from "../Middleware/authMiddleware.js";
 
 const router = express.Router();
 

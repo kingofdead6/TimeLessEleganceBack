@@ -45,10 +45,9 @@ export const addToCart = asyncHandler(async (req, res) => {
 
 export const getCart = asyncHandler(async (req, res) => {
   const userId = req.user._id;
-  const cart = await Cart.findOne({ user_id: userId }).populate("items.product_id");
+  let cart = await Cart.findOne({ user_id: userId }).populate("items.product_id");
   if (!cart) {
-    res.status(404);
-    throw new Error("Cart not found");
+    cart = { user_id: userId, items: [] }; // Return empty cart instead of error
   }
   res.json({ cart });
 });
@@ -62,10 +61,10 @@ export const updateCartItem = asyncHandler(async (req, res) => {
     throw new Error("Item ID and quantity are required");
   }
 
-  const cart = await Cart.findOne({ user_id: userId });
+  let cart = await Cart.findOne({ user_id: userId });
   if (!cart) {
     res.status(404);
-    throw new Error("Cart not found");
+    throw new Error("Cart not found"); // Keep error for update since itemId is specified
   }
 
   const item = cart.items.id(itemId);
@@ -101,10 +100,10 @@ export const removeCartItem = asyncHandler(async (req, res) => {
     throw new Error("Item ID is required");
   }
 
-  const cart = await Cart.findOne({ user_id: userId });
+  let cart = await Cart.findOne({ user_id: userId });
   if (!cart) {
     res.status(404);
-    throw new Error("Cart not found");
+    throw new Error("Cart not found"); // Keep error for remove since itemId is specified
   }
 
   const item = cart.items.id(itemId);

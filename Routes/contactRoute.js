@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { createContact, getContacts, deleteContact } from "../Controllers/ContactController.js";
-import { adminMiddleware, authMiddleware } from '../middleware/authMiddleware.js';
+import { authMiddleware, adminMiddleware } from "../Middleware/authMiddleware.js";
 
 const router = Router();
 

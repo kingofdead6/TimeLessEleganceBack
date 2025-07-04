@@ -7,4 +7,4 @@ const announcementSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
 });
 
-export default mongoose.model("Announcement", announcementSchema);
+export default mongoose.models.Announcement || mongoose.model("Announcement", announcementSchema);

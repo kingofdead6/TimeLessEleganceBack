@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { CreateNewsLetter, getNewsLetter, removeMultipleNewsLetter, removeNewsLetter, SendEmails } from '../Controllers/NewsletterController.js';
-import { adminMiddleware, authMiddleware } from '../middleware/authMiddleware.js';
+import { authMiddleware, adminMiddleware } from "../Middleware/authMiddleware.js";
 
 const router = Router();
 

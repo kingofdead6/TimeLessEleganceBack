@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import validator from 'validator';
 
+// Define the User schema
 const UserSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
@@ -16,4 +17,5 @@ const UserSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model('User', UserSchema);
+// Export the User model, ensuring it's only created once
+export default mongoose.models.User || mongoose.model('User', UserSchema);
