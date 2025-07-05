@@ -1,6 +1,7 @@
 import asyncHandler from "express-async-handler";
 import Cart from "../Models/cartModel.js";
 import Product from "../Models/productModel.js";
+import mongoose from 'mongoose';
 
 export const addToCart = asyncHandler(async (req, res) => {
   const { productId, quantity, size } = req.body;
@@ -29,8 +30,9 @@ export const addToCart = asyncHandler(async (req, res) => {
     cart = new Cart({ user_id: userId, items: [] });
   }
 
+  // Check for existing item, ensuring product_id exists
   const existingItem = cart.items.find(
-    (item) => item.product_id.toString() === productId && item.size === size
+    (item) => item.product_id && item.product_id.toString() === productId && item.size === size
   );
   if (existingItem) {
     existingItem.quantity += quantity;

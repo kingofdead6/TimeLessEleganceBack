@@ -40,7 +40,7 @@ const productSchema = new mongoose.Schema(
             validator: function (value) {
               const category = this.parent().category;
               if (category === "Footwear") {
-                return true; // Allow any string for Footwear
+                return true; 
               }
               return clothingSizes.includes(value);
             },
